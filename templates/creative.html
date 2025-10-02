@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Creative Corner | Maitri Prabhu{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto p-8 text-center">
+        <h1 class="text-5xl font-bold mb-4 text-purple-500 dark:text-yellow-400">
+            Creative Corner 🌸
+        </h1>
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-10">
+            A space to explore life beyond the terminal: Dance, Poetry, and Paint.
+        </p>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-semibold mb-6">My Artistic Passions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-3">Rhythm & Melody</h3>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Trained in **Bharatanatyam** & **Kuchipudi** and a **Carnatic Classical singer**.
+                    </p>
+                </div>
+                <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-3">The Writer's Pen</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        A collection of original poems and written works.
+                    </p>
+                    <a href="{{ url_for('poetry') }}" class="text-lg font-semibold text-blue-500 hover:text-blue-400">
+                        Explore Poetry →
+                    </a>
+                </div>
+                <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+                    <h3 class="text-2xl font-bold mb-3">Visual Art & Painting</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        See my artwork and visual creations.
+                    </p>
+                    <a href="{{ url_for('paintings') }}" class="text-lg font-semibold text-blue-500 hover:text-blue-400">
+                        View Paintings →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+{% endblock %}

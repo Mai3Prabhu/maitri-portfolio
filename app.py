@@ -11,6 +11,28 @@ def home():
     # Render the base.html file with 'index.html' content block
     return render_template('index.html')
 
+#  About Page
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+# Projects Page
+@app.route('/projects')
+def projects():
+    return render_template('projects.html') 
+
+@app.route('/creative') 
+def creative_corner():
+    return render_template('creative.html')
+
+@app.route('/creative/poetry') 
+def poetry():
+    return render_template('poetry.html')
+
+@app.route('/creative/paintings') 
+def paintings():
+    return render_template('paintings.html')
+
 # This allows you to run the app directly from the terminal
 if __name__ == '__main__':
     # debug=True automatically reloads the server when you save changes

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-8">Painting Portfolio</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-10">
+            A collection of my work in visual arts. Click an image to view details.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="gallery-item overflow-hidden rounded-lg shadow-xl cursor-pointer hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                <img src="{{ url_for('static', filename='img/painting_placeholder_1.jpg') }}" alt="Carnatic Raga Abstract" class="w-full h-auto object-cover">
+            </div>
+            
+            <div class="gallery-item overflow-hidden rounded-lg shadow-xl cursor-pointer hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                <img src="{{ url_for('static', filename='img/painting_placeholder_2.jpg') }}" alt="Bharatanatyam Study" class="w-full h-auto object-cover">
+            </div>
+
+            </div>
+        </div>
+{% endblock %}
