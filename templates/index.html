@@ -1,10 +1,52 @@
 {% extends "base.html" %}
+{% block title %}Home | Maitri Prabhu{% endblock %}
 
 {% block content %}
-    <section class="hero">
-        <h1>Hi, I'm Maitri Prabhu.</h1>
-        <h2>Python Developer | Full-Stack Aspirant</h2>
-        <p>I build robust applications using Python and Flask.</p>
-        <a href="{{ url_for('projects') }}" class="cta-button">View My Projects</a>
-    </section>
+   <div class="container mx-auto min-h-screen pt-16 flex flex-col items-center justify-center">
+
+    <!-- === HERO SECTION === -->
+    <div class="text-center flex flex-col items-center justify-center">
+        <!-- CRITICAL FIX: Setting H1 to Medium Purple (#9966CC) -->
+        <h1 class="text-6xl font-extrabold text-[#9966CC] dark:text-[#FFFACD] transition-colors duration-500">
+            Hey, I am Maitri Prabhu.
+        </h1>
+
+        <h2 class="text-xl font-medium mt-1 text-gray-700 dark:text-gray-300">
+            Welcome to my portfolio
+        </h2>
+    </div>
+
+    <!-- === IMAGE PLACEHOLDER (Larger Circle) === -->
+    <div class="relative my-10 h-64 w-64 md:h-80 md:w-80 rounded-full bg-gray-200 dark:bg-gray-700 shadow-xl 
+                flex items-center justify-center border-4 border-[#9966CC] dark:border-yellow-400">
+        <span class="text-lg text-gray-500 dark:text-gray-300">My Pic (Placeholder)</span>
+    </div>
+
+    <!-- === INTRODUCTORY QUOTE === -->
+    <p class="mt-8 mb-8 text-xl max-w-xl mx-auto italic text-center text-gray-700 dark:text-gray-300">
+        Welcome! This is where I merge logical precision with creativity. Here's my journey from code to canvas.
+    </p>
+
+
+    <!-- === CONNECT WITH ME (Fixed Bottom-Left) === -->
+    <div class="fixed bottom-0 left-0 p-4 bg-gray-100 dark:bg-gray-800 rounded-tr-xl shadow-2xl z-40">
+        <div class="text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300">
+            Connect with Me
+        </div>
+        <div class="flex items-start space-x-4">
+            <!-- Gmail Icon -->
+            <a href="mailto:prabhumaitri@gmail.com" class="text-2xl text-[#9966CC] dark:text-[#33B5E5] hover:opacity-75 transition">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <!-- LinkedIn Icon -->
+            <a href="https://linkedin.com/in/maitriprabhu30/" class="text-2xl text-[#9966CC] dark:text-[#33B5E5] hover:opacity-75 transition">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <!-- Instagram Icon -->
+            <a href="#" class="text-2xl text-[#9966CC] dark:text-[#33B5E5] hover:opacity-75 transition">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock %}

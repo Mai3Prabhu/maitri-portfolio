@@ -2,43 +2,57 @@
 {% block title %}Creative Corner | Maitri Prabhu{% endblock %}
 
 {% block content %}
-    <div class="container mx-auto p-8 text-center">
-        <h1 class="text-5xl font-bold mb-4 text-purple-500 dark:text-yellow-400">
-            Creative Corner 🌸
+    <div class="container mx-auto p-8 min-h-screen">
+        <h1 class="text-4xl font-bold mb-4 text-center text-purple-600 dark:text-[#FFFACD]">
+            My Favorite Comfort Space 🌸
         </h1>
-        <p class="text-xl text-gray-700 dark:text-gray-300 mb-10">
-            A space to explore life beyond the terminal: Dance, Poetry, and Paint.
+        
+        <p class="text-xl italic text-gray-700 dark:text-gray-300 mb-12 text-center max-w-2xl mx-auto">
+            Code gives structure to logic, but creativity gives structure to the soul. This space is a dedication to the passions that provide perspective and rhythm to my journey.
         </p>
 
-        <section class="mb-16">
-            <h2 class="text-3xl font-semibold mb-6">My Artistic Passions</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold mb-3">Rhythm & Melody</h3>
-                    <p class="text-gray-600 dark:text-gray-400">
-                        Trained in **Bharatanatyam** & **Kuchipudi** and a **Carnatic Classical singer**.
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            
+            <!-- LEFT COLUMN: Dance and Singing Cards -->
+            <div class="lg:col-span-1 space-y-8">
+                
+                <!-- Dance Card (Custom Shape) -->
+                <div class="p-8 shadow-xl bg-purple-100 dark:bg-gray-700 rounded-[50px] border-4 border-purple-500">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-[#FFFACD] mb-3">Dance: Bharatanatyam & Kuchipudi</h2>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        **Bharatanatyam** provides expressive discipline, while **Kuchipudi** drives rhythmic complexity. Dancing to rhythm reinforces the importance of **consistency and flow**—a principle I apply daily in my coding practice.
                     </p>
+                    
+                    <!-- Circular Dance Placeholder -->
+                    <div class="w-32 h-32 rounded-full bg-blue-200 dark:bg-gray-600 mt-4 mx-auto flex items-center justify-center border-2 border-blue-400">
+                        <span class="text-xs text-gray-600 dark:text-gray-400">Dance Pic Placeholder</span>
+                    </div>
                 </div>
-                <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-2xl font-bold mb-3">The Writer's Pen</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        A collection of original poems and written works.
+
+                <!-- Singing Card (Custom Shape) -->
+                <div class="p-8 shadow-xl bg-blue-100 dark:bg-gray-700 rounded-[50px] border-4 border-blue-500">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-[#FFFACD] mb-3">Singing: Carnatic Classical</h2>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Training in **Carnatic classical music** requires intense focus and precision. It is the purest form of expression and has taught me that dedication and consistency are the **key to perfection**—in music and in code.
                     </p>
-                    <a href="{{ url_for('poetry') }}" class="text-lg font-semibold text-blue-500 hover:text-blue-400">
-                        Explore Poetry →
-                    </a>
-                </div>
-                <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="text-2xl font-bold mb-3">Visual Art & Painting</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        See my artwork and visual creations.
-                    </p>
-                    <a href="{{ url_for('paintings') }}" class="text-lg font-semibold text-blue-500 hover:text-blue-400">
-                        View Paintings →
-                    </a>
                 </div>
             </div>
-        </section>
 
+            <!-- RIGHT COLUMN: Poetry and Painting Links -->
+            <div class="lg:col-span-2 grid grid-cols-2 gap-12 pt-16 lg:pt-0">
+                
+                <!-- Poetry Link Card -->
+                <a href="{{ url_for('poetry') }}" class="p-8 text-center shadow-2xl transition duration-300 transform hover:scale-105 rounded-3xl 
+                    bg-purple-600 dark:bg-gray-800 text-white font-bold h-48 flex items-center justify-center">
+                    <span class="text-3xl">Poetry ✍️</span>
+                </a>
+
+                <!-- Painting Link Card -->
+                <a href="{{ url_for('paintings') }}" class="p-8 text-center shadow-2xl transition duration-300 transform hover:scale-105 rounded-3xl 
+                    bg-blue-600 dark:bg-gray-800 text-white font-bold h-48 flex items-center justify-center">
+                    <span class="text-3xl">Painting 🎨</span>
+                </a>
+            </div>
+        </div>
     </div>
 {% endblock %}

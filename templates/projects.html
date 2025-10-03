@@ -1,35 +1,77 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-8">My AI/ML & Python Projects 🚀</h1>
+        <h1 class="text-4xl font-bold mb-12 text-center text-purple-600 dark:text-[#FFFACD]">
+            Projects
+        </h1>
 
-        <div class="project-card mb-8 p-6 border-b border-gray-300 dark:border-gray-700">
-            <h2 class="text-3xl font-semibold text-blue-500">Insightify: Data Analysis & ML Web App</h2>
-            <p class="text-lg mt-2 mb-4">
-                A Flask application for comprehensive Exploratory Data Analysis (EDA), Feature Engineering, and Machine Learning model training, complete with an AI Assistant. [cite_start]It was designed to streamline the data science workflow[cite: 23, 58, 85, 86, 127].
-            </p>
-            <p class="font-mono text-sm">
-                [cite_start]**Tech Stack:** Python (Flask, Pandas, scikit-learn), HTML, **Tailwind CSS**, JavaScript, Google Gemini API[cite: 24, 59, 87, 128].
-            </p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            <!-- Column 1 & 2: Main Project Containers -->
+            <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                
+                <!-- Project 1: Insightify (Large, unique container) -->
+                <div class="p-8 shadow-2xl transition duration-300 transform hover:scale-[1.02]
+                            bg-purple-100 dark:bg-gray-700 rounded-[40px] border-4 border-purple-500 dark:border-yellow-400">
+                    <h2 class="text-3xl font-bold mb-3 text-gray-900 dark:text-[#FFFACD]">Insightify</h2>
+                    <p class="mb-4 text-gray-700 dark:text-gray-300 italic">
+                        Flask-based web application designed to simplify data science workflows.
+                    </p>
+                    
+                    <!-- Feature Blocks -->
+                    <div class="space-y-4 mb-6">
+                        <div class="p-3 bg-white dark:bg-gray-600 rounded-lg shadow-inner">
+                            <p class="font-semibold">Exploratory Data Analysis (EDA) & Feature Engineering</p>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-gray-600 rounded-lg shadow-inner">
+                            <p class="font-semibold">Basic Machine Learning Model Training</p>
+                        </div>
+                        <div class="p-3 bg-white dark:bg-gray-600 rounded-lg shadow-inner">
+                            <p class="font-semibold">AI Assistant powered by Google Gemini API</p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="text-blue-600 dark:text-[#00FFFF] font-bold hover:underline">
+                        GitHub link of this project →
+                    </a>
+                </div>
+
+                <!-- Project 2: Spacebot (Smaller, distinct container) -->
+                <div class="p-8 mt-12 md:mt-0 shadow-2xl transition duration-300 transform hover:scale-[1.02]
+                            bg-blue-100 dark:bg-gray-700 rounded-xl border-4 border-blue-500 dark:border-[#00FFFF]">
+                    <h2 class="text-3xl font-bold mb-3 text-gray-900 dark:text-[#FFFACD]">Spacebot</h2>
+                    <p class="mb-4 text-gray-700 dark:text-gray-300 italic">
+                        An interactive chatbot that fetches real-time space data using NASA APIs.
+                    </p>
+                    <p class="mb-6 font-mono text-sm text-gray-700 dark:text-gray-300">
+                        Tech: Python, Streamlit, Gemini API
+                    </p>
+                    <a href="#" class="text-blue-600 dark:text-[#00FFFF] font-bold hover:underline">
+                        GitHub link →
+                    </a>
+                </div>
             </div>
 
-        <div class="project-card mb-8 p-6 border-b border-gray-300 dark:border-gray-700">
-            <h2 class="text-3xl font-semibold text-blue-500">Spacebot: Your Cosmic Companion</h2>
-            <p class="text-lg mt-2 mb-4">
-                [cite_start]An interactive conversational chatbot that fetches real-time space data and astronomy pictures using NASA APIs and the Gemini AI for text generation[cite: 20, 55, 92, 93].
-            </p>
-            <p class="font-mono text-sm">
-                [cite_start]**Tech Stack:** Python, Streamlit, NASA APIs, Google Gemini API[cite: 21, 56, 94].
-            </p>
-            </div>
+            <!-- Column 3: Central Quote and Secondary CTA -->
+            <div class="lg:col-span-1 flex flex-col justify-between h-full">
+                
+                <!-- Motivational Quote -->
+                <p class="text-xl italic font-semibold text-center mt-10 lg:mt-0">
+                    My drive comes from solving complex problems. Every project is a technical challenge that boosts my skills and encourages continuous growth.
+                </p>
 
-        <div class="project-card mb-8 p-6 border-b border-gray-300 dark:border-gray-700">
-            <h2 class="text-3xl font-semibold text-purple-500">Data Science Case Studies</h2>
-            <ul class="list-disc ml-6 text-lg">
-                [cite_start]<li>Built a Linear Regression model on the USA Housing dataset to forecast house prices[cite: 28, 63, 81, 132].</li>
-                [cite_start]<li>Applied K-Means clustering on Mall Customers data to identify spending patterns and segment customer groups[cite: 29, 64, 82, 133].</li>
-            </ul>
+                <!-- Visit GitHub CTA -->
+                <div class="p-6 mt-16 md:mt-24 lg:mt-32 text-center rounded-lg shadow-2xl 
+                            bg-purple-600 dark:bg-gray-800 text-white 
+                            transform skew-y-1 hover:skew-y-0 transition duration-300">
+                    <p class="text-xl font-bold -skew-y-1">
+                        For more projects you can always visit my GitHub:
+                    </p>
+                    <a href="https://github.com/Mai3Prabhu" target="_blank" class="text-[#FFFACD] dark:text-[#00FFFF] hover:text-white font-mono text-lg underline -skew-y-1 block mt-2">
+                        @Mai3Prabhu
+                    </a>
+                </div>
+            </div>
         </div>
-        
     </div>
 {% endblock %}

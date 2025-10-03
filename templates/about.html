@@ -1,55 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-4">About Maitri Prabhu</h1>
-        
-        <p class="text-xl italic text-gray-700 dark:text-gray-300 mb-10">
-            Final Year Undergrad | 🍭 AI/ML Explorer | 🐍 Python Whisperer 
-            — "Wandering through bugs & queries... but hey, that’s how discoveries are made!"
-        </p>
+        <h1 class="text-4xl font-bold mb-10 text-center text-purple-600 dark:text-[#FFFACD]">
+            I am a Final year undergrad looking for opportunities to learn and grow!!
+        </h1>
 
-        <section class="mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md">
-            <h2 class="text-3xl font-semibold mb-4 text-purple-500">Academic & Technical Foundation 🛠️</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-lg">
-                <div>
-                    <h3 class="font-bold">Education:</h3>
-                    <p>
-                        **SJB Institute of Technology, VTU** <br>B.E. in AI & Machine Learning
-                        <br>CGPA: 8.60 (2022-2026*)
-                    </p>
-                </div>
-                <div>
-                    <h3 class="font-bold">ML & Data Science:</h3>
-                    <p>Supervised/Unsupervised Learning, Scikit-learn, Pandas, NumPy</p>
-                </div>
-                <div>
-                    <h3 class="font-bold">Tech Stack:</h3>
-                    <p>Python, Flask, MySQL, Git, Tableau, Power BI</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="mt-16">
-            <h2 class="text-3xl font-semibold mb-6 text-purple-500">Beyond the Code 🧠✨</h2>
+        <!-- === FOUR COLUMN GRID LAYOUT === -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-3">Linguistic Proficiency 🗣️</h3>
-                    <p class="text-lg">
-                        [cite_start]Fluent in **English, Kannada, Hindi,** and also proficient in **Konkani** and **Turkish**[cite: 35, 69, 138].
-                    </p>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-bold mb-3">Creative Pursuits 🎭</h3>
-                    <ul class="list-disc list-inside space-y-2 text-lg">
-                        <li>**Dancer:** Trained in Bharatanatyam & Kuchipudi.</li>
-                        <li>**Singer:** Carnatic Classical singer.</li>
-                        <li>**Writer & Poet:** I use poetry and painting as creative outlets.</li>
-                    </ul>
+            <!-- COLUMN 1: Academic Details -->
+            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
+                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Academic Details:</h2>
+                <div class="space-y-3 text-lg">
+                    <p><span class="font-bold">College:</span> SJB Institute of Technology, VTU</p>
+                    <p><span class="font-bold">Branch:</span> B.E. in AI & Machine Learning</p>
+                    <p><span class="font-bold">CGPA:</span> 8.60</p>
+                    <p><span class="font-bold">PU College:</span> V.V.S Sardar Patel PU College (96.33%)</p>
+                    <p><span class="font-bold">School:</span> Florence High School (98.72%)</p>
                 </div>
             </div>
-        </section>
-        
+
+            <!-- COLUMN 2: Technical Skills -->
+            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
+                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Technical Skills:</h2>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                    <li><span class="font-bold">Python:</span> Scikit-learn, Pandas, NumPy, Flask</li>
+                    <li><span class="font-bold">Frontend:</span> HTML, CSS, JavaScript, Tailwind CSS</li>
+                    <li><span class="font-bold">Databases:</span> MySQL</li>
+                    <li><span class="font-bold">Tools:</span> Git, GitHub, Tableau, Power BI</li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 3: Technical Events (With Certificate Links) -->
+            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
+                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Technical Events:</h2>
+                <p class="mb-4 italic">Well, no fun in college without technical events</p>
+                
+                <ul class="space-y-3 text-lg">
+                    <!-- Placeholder Links for Certificates -->
+                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF] font-bold">IROC-URSC - ISRO Hackathon</a> (Pre-finalist)</li>
+                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF] font-bold">Ideathon - SJBIT</a> (Runner-up)</li>
+                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF] font-bold">Sociothon - IIT Roorkee</a> (Participated)</li>
+                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF]">Explore ML using Python (Infosys)</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 4: Beyond Code (Languages) -->
+            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
+                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Beyond Code:</h2>
+                <div class="space-y-4 text-lg">
+                    <p><span class="font-bold">Languages I enjoy speaking:</span></p>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>English, Kannada, Hindi</li>
+                        <li>Konkani, Turkish</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

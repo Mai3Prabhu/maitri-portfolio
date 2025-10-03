@@ -1,24 +1,43 @@
 {% extends "base.html" %}
+{% block title %}Poetry Gallery | Maitri Prabhu{% endblock %}
+
 {% block content %}
-    <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-6">Poetry Gallery</h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-            A reflection of thoughts captured in words.
+    <div class="container mx-auto p-8 max-w-3xl min-h-screen">
+        <h1 class="text-4xl font-bold mb-4 text-center text-purple-600 dark:text-[#FFFACD]">
+            Poetry 📝
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 text-center">
+            A reflection of thoughts captured in words—the emotional equivalent of writing clean documentation. Click any poem title to read the full piece.
         </p>
-        
-        <div class="bg-gray-100 dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-            <h2 class="text-2xl font-mono text-purple-500 mb-4">My Favorite Poem (Placeholder)</h2>
-            <div class="whitespace-pre-wrap font-serif text-lg leading-relaxed">
-                The Python slept, beneath the wire,
-                It dreamt of code, of deep desire.
-                A silent `import`, a function small,
-                It waits for data, standing tall.
-                <br><br>
-                For every bug, a lesson learned,
-                For every line, a feature earned.
-                The final year is but a race,
-                To conquer problems, and find my place.
+
+        <!-- Poem Container -->
+        <div class="space-y-12 flex flex-col items-center">
+            
+            {% set poems = [
+                ('Poem Title 1: The First Commit', 'The Python slept, beneath the wire,\nIt dreamt of code, of deep desire.\nA silent `import`, a function small,\nIt waits for data, standing tall.\n\nI pushed it up, into the cloud,\nA silent whisper, among the crowd.\nThen came the bug, a creeping dread,\nIt changed the colors, the font it bled.\n\nBut in the error, I found my ground,\nThe learning curve, where peace is found.\nFor every line that starts to crawl,\nIs just a moment before the rise and fall.', 'poem-1'),
+                ('Poem Title 2: Raga\'s Echo', 'The scale descends, a Carnatic prayer,\nEach note a structure, built on air.\nLike algorithms finding grace,\nMelody flows, to find its place.\n\nThe Kuchipudi steps, precise and fleet,\nA dance of logic, bitter-sweet.\nCode and rhythm, hand in hand,\nThe same devotion guides the plan.', 'poem-2'),
+                ('Poem Title 3: The Final Line', 'The project manager calls, "Is it done?"\nMy code review waits beneath the sun.\nI trace the error, deep in the `log`,\nA tired whisper: "Just one more jog."\n\nI close the bracket, the semi-colon set,\nThe tests all pass; I have no regret.\nThe final year is but a race,\nTo conquer problems, and find my place.', 'poem-3')
+            ] %}
+            
+            {% for title, text, id_name in poems %}
+            <!-- Individual Poem Block (Custom Shape) -->
+            <div id="{{ id_name }}-block" class="p-8 w-full max-w-md shadow-2xl bg-gray-100 dark:bg-gray-700 
+                        rounded-[20px] cursor-pointer hover:shadow-inner transition duration-300"
+                        onclick="openPoemModal('{{ title|escapejs }}', '{{ text | replace('\n','<br>')|escapejs }}')">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{{ title }}</h2>
+                <p class="text-sm mt-2 text-gray-500 italic">Click to zoom and read</p>
             </div>
+            {% endfor %}
+
         </div>
+    </div>
+    
+    <!-- === Zoom Modal for Poetry (Same structure as paintings) === -->
+    <div id="poem-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[100] hidden" onclick="closePoemModal()">
+        <div class="relative max-w-3xl max-h-5xl p-8 bg-white dark:bg-gray-800 rounded-lg shadow-2xl" onclick="event.stopPropagation()">
+            <span class="absolute top-0 right-0 text-gray-500 text-5xl cursor-pointer pr-4 hover:text-red-500" onclick="closePoemModal()">&times;</span>
+            <h2 id="modal-poem-title" class="text-3xl font-bold mb-4 text-purple-600 dark:text-yellow-400"></h2>
+            <div id="modal-poem-content" class="whitespace-pre-wrap text-lg leading-relaxed text-gray-900 dark:text-gray-200 max-h-[70vh] overflow-y-auto"></div>
         </div>
+    </div>
 {% endblock %}

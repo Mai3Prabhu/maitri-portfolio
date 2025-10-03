@@ -1,20 +1,41 @@
 {% extends "base.html" %}
+{% block title %}Painting Gallery | Maitri Prabhu{% endblock %}
+
 {% block content %}
-    <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-8">Painting Portfolio</h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-10">
-            A collection of my work in visual arts. Click an image to view details.
+    <div class="container mx-auto p-8 min-h-screen">
+        <h1 class="text-4xl font-bold mb-8 text-center text-purple-600 dark:text-[#FFFACD]">
+            Visual Art & Painting 🖼️
+        </h1>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-10 text-center">
+            A collection of my work. Click any painting to zoom in for detail.
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div class="gallery-item overflow-hidden rounded-lg shadow-xl cursor-pointer hover:shadow-2xl transition duration-300 transform hover:scale-105">
-                <img src="{{ url_for('static', filename='img/painting_placeholder_1.jpg') }}" alt="Carnatic Raga Abstract" class="w-full h-auto object-cover">
-            </div>
+        <!-- === Painting Gallery (5 Images in a Row) === -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8">
+            {% set paintings = [
+                ('painting_1.jpg', 'Carnatic Raga Abstraction'), 
+                ('painting_2.jpg', 'Bharatanatyam Study in Motion'),
+                ('painting_3.jpg', 'AI Logic Flow'),
+                ('painting_4.jpg', 'Abstract ML Data'),
+                ('painting_5.jpg', 'Nature Study in Turkish Blue')
+            ] %}
             
-            <div class="gallery-item overflow-hidden rounded-lg shadow-xl cursor-pointer hover:shadow-2xl transition duration-300 transform hover:scale-105">
-                <img src="{{ url_for('static', filename='img/painting_placeholder_2.jpg') }}" alt="Bharatanatyam Study" class="w-full h-auto object-cover">
-            </div>
-
-            </div>
+            {% for file, caption in paintings %}
+            <img src="{{ url_for('static', filename='img/' + file) }}" 
+                 alt="{{ caption }}" 
+                 class="w-full h-auto object-cover rounded-lg shadow-xl cursor-pointer transition duration-300 hover:opacity-75" 
+                 onclick="openPaintingModal('{{ file }}', '{{ caption }}')">
+            {% endfor %}
         </div>
+        <!-- ======================================= -->
+    </div>
+
+    <!-- === Modal Structure (Hidden by default) === -->
+    <div id="painting-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[100] hidden" onclick="closePaintingModal()">
+        <div class="relative max-w-5xl max-h-5xl p-4" onclick="event.stopPropagation()">
+            <span class="absolute top-0 right-0 text-white text-5xl cursor-pointer pr-4 hover:text-red-500" onclick="closePaintingModal()">&times;</span>
+            <img id="modal-painting-image" class="max-w-full max-h-screen object-contain" src="" alt="Zoomed Painting">
+            <p id="modal-painting-caption" class="text-white text-center mt-3 text-xl"></p>
+        </div>
+    </div>
 {% endblock %}

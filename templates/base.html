@@ -4,22 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Maitri Prabhu | Portfolio{% endblock %}</title>
+    
+    <!-- 1. LINKS TAILWIND CSS (Build output) -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- 2. CRITICAL FIX: LINKS FONT AWESOME ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
-    <header>
-    <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('about') }}">About Me</a>  <a href="{{ url_for('projects') }}">Projects</a> </nav>
-</header>
+<!-- Sets global light/dark background/text colors -->
+<body class="bg-white dark:bg-[#1E1E1E] text-gray-900 dark:text-gray-100 transition-colors duration-500">
+    
+    <!-- === STICKY NAVIGATION BAR (Right Aligned) === -->
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-[#1E1E1E]/95 shadow-md dark:shadow-lg transition duration-500">
+        <nav class="container mx-auto flex items-center justify-end p-4"> 
+            
+            <!-- Links and Theme Toggle Group -->
+            <div class="flex items-center space-x-6">
+                
+                <!-- Navigation Links -->
+                <!-- Home Link (No Dialogue Bubble) -->
+                <a href="{{ url_for('home') }}" class="relative group hover:text-[#B8B8E0] dark:hover:text-[#33B5E5] transition duration-150">
+                    Home
+                </a>
+                
+                <a href="{{ url_for('about') }}" class="relative group hover:text-[#B8B8E0] dark:hover:text-[#33B5E5] transition duration-150">
+                    About Me
+                    <!-- DIALOGUE BUBBLE -->
+                    <!-- LIGHT MODE FIX: Medium Purple border, Dark Purple text, Wider box -->
+                    <div class="absolute hidden group-hover:flex top-8 right-0 p-4 bg-gray-100 dark:bg-gray-700 text-sm rounded-lg shadow-md w-64 h-auto text-left z-50 border-t-4 border-[#9370DB] dark:border-[#FFFACD] text-[#4B0082] dark:text-[#FFFACD] items-center justify-center">
+                        Well, Let's know what I am upto!!
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('projects') }}" class="relative group hover:text-[#B8B8E0] dark:hover:text-[#33B5E5] transition duration-150">
+                    Projects
+                    <!-- DIALOGUE BUBBLE -->
+                    <div class="absolute hidden group-hover:flex top-8 right-0 p-4 bg-gray-100 dark:bg-gray-700 text-sm rounded-lg shadow-md w-64 h-auto text-left z-50 border-t-4 border-[#9370DB] dark:border-[#FFFACD] text-[#4B0082] dark:text-[#FFFACD] items-center justify-center">
+                        What’s fun when one can't implement, isn’t it?
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('creative_corner') }}" class="relative group hover:text-[#B8B8E0] dark:hover:text-[#33B5E5] transition duration-150">
+                    Creative Corner
+                    <!-- DIALOGUE BUBBLE -->
+                    <div class="absolute hidden group-hover:flex top-8 right-0 p-4 bg-gray-100 dark:bg-gray-700 text-sm rounded-lg shadow-md w-64 h-auto text-left z-50 border-t-4 border-[#9370DB] dark:border-[#FFFACD] text-[#4B0082] dark:dark:text-[#FFFACD] items-center justify-center">
+                        What's life if there is no passion that brings out the artist in us, right?!
+                    </div>
+                </a>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-150 text-xl">
+                    ☀️/🌙
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <main>
+        <!-- Renders content from the child template (e.g., index.html) -->
         {% block content %}{% endblock %}
     </main>
 
-    <footer>
+    <footer class="text-center p-4 text-sm text-gray-500 dark:text-gray-400 mt-auto">
         <p>&copy; 2025 Maitri Prabhu. All rights reserved.</p>
     </footer>
-
+    
+    <!-- 3. LINKS JAVASCRIPT FOR THEME SWITCHING AND MODALS -->
+    <script src="{{ url_for('static', filename='js/theme.js') }}"></script>
 </body>
 </html>
