@@ -71,3 +71,26 @@ window.closePaintingModal = function() {
     paintingModal.classList.remove('flex');
     paintingModal.classList.add('hidden');
 }
+// --- Insightify Project Carousel Logic ---
+let currentSlide = 0;
+let totalSlides = 5; // Must match the number of images
+
+window.nextSlide = function() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+}
+
+window.prevSlide = function() {
+    // This handles wrapping from the first image back to the last
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const carousel = document.getElementById('insightify-carousel');
+    if (carousel) {
+        // Moves the carousel container by a multiple of 100% of its width
+        const offset = -currentSlide * 100; 
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+}

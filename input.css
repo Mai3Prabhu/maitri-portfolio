@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* * ------------------------------------------------------------------
+ * ADD ALL CUSTOM STYLES BELOW THIS LINE!
+ * Tailwind will include these in the final output file (style.css).
+ * ------------------------------------------------------------------
+ */
+
+/* Fix for the Theme Toggle Button Visibility */
+.dark-icon {
+    display: none;
+}
+.light-icon {
+    display: inline;
+}
+.dark .dark-icon {
+    display: inline;
+}
+.dark .light-icon {
+    display: none;
+}
+
+/* Custom CSS for the Chic GitHub CTA Button Animation and Color */
+
+.github-cta {
+    /* Ensures smooth animation for transform, shadow, and color changes */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    /* Base style: No rotation, normal size */
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+    
+    /* LIGHT Mode Color: Medium Slate Blue */
+    background-color: #7B68EE; 
+}
+
+/* Dark mode specific background color */
+.dark .github-cta {
+    /* DARK Mode Color: Deeper Purple */
+    background-color: #5F4B8B; 
+}
+
+.github-cta:hover {
+    /* The "see-saw" effect: subtle 3D rotation and a small pop-up scale */
+    transform: rotateX(5deg) rotateY(5deg) scale(1.05); 
+    /* Make the shadow deeper to emphasize the lift/pop-up */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    
+    /* Slightly brighter color on hover */
+    background-color: #8A7CE2; 
+}
+
+.dark .github-cta:hover {
+    background-color: #79669F; 
+}

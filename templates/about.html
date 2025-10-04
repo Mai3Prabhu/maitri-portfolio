@@ -1,60 +1,70 @@
 {% extends "base.html" %}
+{% block title %}About Me | Maitri Prabhu{% endblock %}
+
 {% block content %}
-    <div class="container mx-auto p-8">
-        <h1 class="text-4xl font-bold mb-10 text-center text-purple-600 dark:text-[#FFFACD]">
+    <div class="container mx-auto p-8 pt-12 min-h-screen">
+
+        <!-- === TOP HOOK === -->
+        <h1 class="text-center text-2xl font-semibold mb-12 text-gray-700 dark:text-gray-300">
             I am a Final year undergrad looking for opportunities to learn and grow!!
         </h1>
 
-        <!-- === FOUR COLUMN GRID LAYOUT === -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            
-            <!-- COLUMN 1: Academic Details -->
-            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
-                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Academic Details:</h2>
-                <div class="space-y-3 text-lg">
-                    <p><span class="font-bold">College:</span> SJB Institute of Technology, VTU</p>
-                    <p><span class="font-bold">Branch:</span> B.E. in AI & Machine Learning</p>
-                    <p><span class="font-bold">CGPA:</span> 8.60</p>
-                    <p><span class="font-bold">PU College:</span> V.V.S Sardar Patel PU College (96.33%)</p>
-                    <p><span class="font-bold">School:</span> Florence High School (98.72%)</p>
+        <!-- === FOUR MAIN SECTIONS (Vertical Stacked Layout) === -->
+        <div class="flex flex-col space-y-12">
+
+            <!-- 1. ACADEMIC DETAILS -->
+            <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg border-t-4 border-[#9370DB] dark:border-[#FFFACD]">
+                <h2 class="text-2xl font-bold mb-4 text-[#C71585] dark:text-[#FFFACD]">EDUCATION</h2>
+                <div class="text-lg space-y-3">
+                    <p><strong>College:</strong> SJB Institute of Technology, VTU.</p>
+                    <p><strong>Branch:</strong> B.E. in Artificial Intelligence & Machine Learning.</p>
+                    <p><strong>PU College:</strong> V.V.S Sardar Patel PU College.</p>
+                    <p><strong>School:</strong> Florence High School.</p>
                 </div>
             </div>
 
-            <!-- COLUMN 2: Technical Skills -->
-            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
-                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Technical Skills:</h2>
-                <ul class="list-disc list-inside space-y-2 text-lg">
-                    <li><span class="font-bold">Python:</span> Scikit-learn, Pandas, NumPy, Flask</li>
-                    <li><span class="font-bold">Frontend:</span> HTML, CSS, JavaScript, Tailwind CSS</li>
-                    <li><span class="font-bold">Databases:</span> MySQL</li>
-                    <li><span class="font-bold">Tools:</span> Git, GitHub, Tableau, Power BI</li>
-                </ul>
+            <!-- 2. TECHNICAL SKILLS -->
+            <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg border-t-4 border-[#9370DB] dark:border-[#FFFACD]">
+                <h2 class="text-2xl font-bold mb-4 text-[#C71585] dark:text-[#FFFACD]">TECHNICAL SKILLS</h2>
+                <div class="text-lg space-y-3">
+                    <p><strong>Languages:</strong> Python, C.</p>
+                    <p><strong>Machine Learning and Data Science:</strong> Scikit-learn, Pandas, NumPy.</p>
+                    <p><strong>Frameworks:</strong> Flask.</p>
+                    <p><strong>Databases:</strong> MySQL, MongoDB.</p>
+                    <p><strong>Version Control:</strong> Git, GitHub.</p>
+                    <p><strong>Tools:</strong> VS Code, Google Colab, Tableau, Power BI, Excel, Word, PowerPoint.</p>
+                </div>
             </div>
 
-            <!-- COLUMN 3: Technical Events (With Certificate Links) -->
-            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
-                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Technical Events:</h2>
-                <p class="mb-4 italic">Well, no fun in college without technical events</p>
-                
-                <ul class="space-y-3 text-lg">
-                    <!-- Placeholder Links for Certificates -->
-                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF] font-bold">IROC-URSC - ISRO Hackathon</a> (Pre-finalist)</li>
-                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF] font-bold">Ideathon - SJBIT</a> (Runner-up)</li>
-                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF] font-bold">Sociothon - IIT Roorkee</a> (Participated)</li>
-                    <li><a href="#" class="text-blue-500 hover:underline dark:text-[#00FFFF]">Explore ML using Python (Infosys)</a></li>
-                </ul>
+            <!-- 3. TECHNICAL EVENTS & CERTIFICATES -->
+            <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg border-t-4 border-[#9370DB] dark:border-[#FFFACD]">
+                <h2 class="text-2xl font-bold mb-4 text-[#C71585] dark:text-[#FFFACD]">EXTRA CURRICULARS</h2>
+                <p class="mb-4 italic text-gray-600 dark:text-gray-400">Well, no fun in college without technical events!</p>
+                <div class="text-lg space-y-3">
+                    <!-- Links to Certificates (Placeholder URLs) -->
+                    <p>
+                        <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">IROC-URSC - ISRO Hackathon</a> (Pre-finalist)
+                    </p>
+                    <p>
+                        <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Ideathon - SJBIT</a> (Runner-up)
+                    </p>
+                    <p>
+                        <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Sociothon - IIT Roorkee</a> (Participated)
+                    </p>
+                    <p>
+                        <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Ideathon - JSSATE</a> (Participated)
+                    </p>
+                    <p>
+                        <a href="#" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Institute of Electrical and Electronics Engineers (IEEE)</a> (Member)
+                    </p>
+                </div>
             </div>
 
-            <!-- COLUMN 4: Beyond Code (Languages) -->
-            <div class="p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl border-t-4 border-blue-400">
-                <h2 class="text-2xl font-semibold mb-4 text-purple-500">Beyond Code:</h2>
-                <div class="space-y-4 text-lg">
-                    <p><span class="font-bold">Languages I enjoy speaking:</span></p>
-                    <ul class="list-disc list-inside ml-4">
-                        <li>English, Kannada, Hindi</li>
-                        <li>Konkani, Turkish</li>
-                    </ul>
-                    
+            <!-- 4. BEYOND CODE (Languages & Hobbies) -->
+            <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg border-t-4 border-[#9370DB] dark:border-[#FFFACD]">
+                <h2 class="text-2xl font-bold mb-4 text-[#C71585] dark:text-[#FFFACD]">BEYOND CODE</h2>
+                <div class="text-lg space-y-3">
+                    <p><strong>Languages I enjoy speaking:</strong> English, Kannada, Hindi, Konkani, Turkish.</p>                
                 </div>
             </div>
         </div>
