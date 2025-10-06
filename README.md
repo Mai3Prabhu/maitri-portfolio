@@ -85,14 +85,14 @@ pip install -r requirements.txt
 python app.py
 ```
 
-I’m currently exploring opportunities where technical depth meets creative design thinking.
-Let’s connect and create something exceptional together!
+### I’m currently exploring opportunities where technical depth meets creative design thinking.
+### Let’s connect and create something exceptional together!
 
-🧑‍💻 GitHub: [Your GitHub Profile Link](https://github.com/Mai3Prabhu)
+- 🧑‍💻 GitHub: [Your GitHub Profile Link](https://github.com/Mai3Prabhu)
 
-💼 LinkedIn: [Your LinkedIn Profile Link](https://www.linkedin.com/in/maitriprabhu30/)
+- 💼 LinkedIn: [Your LinkedIn Profile Link](https://www.linkedin.com/in/maitriprabhu30/)
 
-✉️ Portfolio Live Demo: [View Here](https://maitri-portfolio.onrender.com)
+- ✉️ Portfolio Live Demo: [View Here](https://maitri-portfolio.onrender.com)
 
 
-“Code is the choreography of logic — every line a step in a dance of creation.” 💃
+ **“Code is the choreography of logic — every line a step in a dance of creation.”**
