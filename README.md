@@ -11,7 +11,7 @@
 
 A personalized, **full-stack portfolio** built with **Flask** and **Jinja2**, designed to merge technical proficiency in backend development with expressive creative pursuits — **Dance, Poetry, and Painting**.
 
-This project serves as both a **professional showcase** of my technical expertise in **Full-Stack Development, DSA**, and **Algorithm Design**, and a **personal canvas** for creativity.
+
 
 ---
 
