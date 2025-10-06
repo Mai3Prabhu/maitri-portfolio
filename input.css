@@ -37,7 +37,7 @@
 /* Dark mode specific background color */
 .dark .github-cta {
     /* DARK Mode Color: Deeper Purple */
-    background-color: #5F4B8B; 
+    background-color: #825dd2; 
 }
 
 .github-cta:hover {
@@ -52,4 +52,25 @@
 
 .dark .github-cta:hover {
     background-color: #79669F; 
+}
+
+/* Custom CSS for Creative Corner Carousel Stacking */
+.carousel-card {
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, z-index 0.1s, background-color 0.5s ease;
+    position: absolute; 
+    top: 0;
+    left: 0;
+
+    /* Light mode soothing background color */
+    background-color: #e9d5ec; /* A very light, warm off-white (Papaya Whip family) */
+    /* You can try other values like:
+       #F5F5DC - Beige
+       #FDF5E6 - Old Lace
+       #FFFACD - Lemon Chiffon (which you use for dark text)
+    */
+}
+
+/* Ensure dark mode still applies its specific background, overriding the above */
+.dark .carousel-card {
+    background-color: #b9c07a; /* Tailwind's gray-800, or your preferred dark card background */
 }

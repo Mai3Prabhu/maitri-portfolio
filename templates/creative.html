@@ -2,57 +2,63 @@
 {% block title %}Creative Corner | Maitri Prabhu{% endblock %}
 
 {% block content %}
-    <div class="container mx-auto p-8 min-h-screen">
-        <h1 class="text-4xl font-bold mb-4 text-center text-purple-600 dark:text-[#FFFACD]">
-            My Favorite Comfort Space 🌸
+    <div class="container mx-auto p-8 min-h-screen flex flex-col items-center">
+        <h1 class="text-5xl font-bold mb-10 text-[#825dd2] dark:text-[#FFFACD] border-b pb-4 border-gray-300 dark:border-gray-700 w-full text-center">
+              My comfort space 🌸
         </h1>
-        
-        <p class="text-xl italic text-gray-700 dark:text-gray-300 mb-12 text-center max-w-2xl mx-auto">
-            Code gives structure to logic, but creativity gives structure to the soul. This space is a dedication to the passions that provide perspective and rhythm to my journey.
-        </p>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div class="w-full max-w-4xl text-center mb-12 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl">
+            <p class="text-xl italic text-gray-700 dark:text-gray-300">
+                I carry an innate zeal to explore various forms of art, and I stand by that passion every day. Calling these pursuits 'just hobbies' doesn't do justice to the profound sense of peace and inspiration they bring. They are the sanctuary where my creative side is fully invoked. By sharing this corner, I hope to encourage others to recognize and pursue the passions that truly fuel their lives, professional or otherwise.
+            </p>
+        </div>
+
+        <div class="relative w-full max-w-xl h-[450px] flex items-center justify-center">
             
-            <!-- LEFT COLUMN: Dance and Singing Cards -->
-            <div class="lg:col-span-1 space-y-8">
+            <div id="creative-carousel" class="relative w-full h-full">
                 
-                <!-- Dance Card (Custom Shape) -->
-                <div class="p-8 shadow-xl bg-purple-100 dark:bg-gray-700 rounded-[50px] border-4 border-purple-500">
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-[#FFFACD] mb-3">Dance: Bharatanatyam & Kuchipudi</h2>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        **Bharatanatyam** provides expressive discipline, while **Kuchipudi** drives rhythmic complexity. Dancing to rhythm reinforces the importance of **consistency and flow**—a principle I apply daily in my coding practice.
-                    </p>
+                <div class="carousel-card card-1 absolute w-full h-full top-0 left-0 p-8 bg-[#FAF8F4] dark:bg-[#FFFDD0] rounded-xl shadow-2xl border-4 border-[#C8A2C8] dark:border-[#B6A1E8]">
                     
-                    <!-- Circular Dance Placeholder -->
-                    <div class="w-32 h-32 rounded-full bg-blue-200 dark:bg-gray-600 mt-4 mx-auto flex items-center justify-center border-2 border-blue-400">
-                        <span class="text-xs text-gray-600 dark:text-gray-400">Dance Pic Placeholder</span>
+                    <h2 class="text-3xl font-extrabold mb-6 text-[#825dd2] dark:text-gray-900 text-center">Rhythm & Raga</h2>
+                    
+                    <div class="flex flex-col items-center space-y-4">
+                        
+                        <div class="w-48 h-48 rounded-full bg-gray-400 dark:bg-gray-700 flex-shrink-0 border-4 border-white dark:border-gray-900 shadow-xl overflow-hidden">
+                            <img src="{{ url_for('static', filename='img/dance_placeholder.jpg') }}" alt="Dance Photo" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <div class="text-center text-gray-700 dark:text-gray-900 mt-4"> 
+                            <p class="font-bold text-xl">Dancer: Bharatanatyam & Kuchipudi</p>
+                            <p class="font-bold text-xl mb-4">Singer: Carnatic Classical Music</p>
+                            
+                            <p class="mt-4 italic text-base font-medium text-gray-800 dark:text-gray-800">
+                                My constant pursuit of balance and structure. I might speak five languages, but my true language is dance and music.
+                                <br>
+                            </p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Singing Card (Custom Shape) -->
-                <div class="p-8 shadow-xl bg-blue-100 dark:bg-gray-700 rounded-[50px] border-4 border-blue-500">
-                    <h2 class="text-2xl font-bold text-gray-900 dark:text-[#FFFACD] mb-3">Singing: Carnatic Classical</h2>
-                    <p class="text-gray-700 dark:text-gray-300">
-                        Training in **Carnatic classical music** requires intense focus and precision. It is the purest form of expression and has taught me that dedication and consistency are the **key to perfection**—in music and in code.
-                    </p>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN: Poetry and Painting Links -->
-            <div class="lg:col-span-2 grid grid-cols-2 gap-12 pt-16 lg:pt-0">
                 
-                <!-- Poetry Link Card -->
-                <a href="{{ url_for('poetry') }}" class="p-8 text-center shadow-2xl transition duration-300 transform hover:scale-105 rounded-3xl 
-                    bg-purple-600 dark:bg-gray-800 text-white font-bold h-48 flex items-center justify-center">
-                    <span class="text-3xl">Poetry ✍️</span>
+                <a href="{{ url_for('poetry') }}" class="carousel-card card-2 absolute w-full h-full top-0 left-0 p-8 bg-[#F8F4F0] dark:bg-[#FFFFCC] rounded-xl shadow-2xl border-4 border-indigo-600 dark:border-indigo-800 flex flex-col justify-center items-center text-center">
+                    <h2 class="text-4xl font-extrabold mb-4 text-indigo-600 dark:text-indigo-900">Explore My Poetry ✍️</h2>
+                    <p class="text-lg text-gray-700 dark:text-gray-800 mb-2">A space for words, rhythm, and reflection.</p>
+                    <p class="text-xl font-bold text-red-500 dark:text-red-600 mt-4 animate-pulse">CLICK ON THIS</p>
                 </a>
-
-                <!-- Painting Link Card -->
-                <a href="{{ url_for('paintings') }}" class="p-8 text-center shadow-2xl transition duration-300 transform hover:scale-105 rounded-3xl 
-                    bg-blue-600 dark:bg-gray-800 text-white font-bold h-48 flex items-center justify-center">
-                    <span class="text-3xl">Painting 🎨</span>
+                
+                <a href="{{ url_for('paintings') }}" class="carousel-card card-3 absolute w-full h-full top-0 left-0 p-8 bg-[#F8F4F0] dark:bg-[#FFFACD] rounded-xl shadow-2xl border-4 border-purple-600 dark:border-purple-800 flex flex-col justify-center items-center text-center">
+                    <h2 class="text-4xl font-extrabold mb-4 text-purple-600 dark:text-purple-900">View My Paintings 🖼️</h2>
+                    <p class="text-lg text-gray-700 dark:text-gray-800 mb-2">A clean gallery of my visual artwork.</p>
+                    <p class="text-xl font-bold text-red-500 dark:text-red-600 mt-4 animate-pulse">CLICK ON THIS</p>
                 </a>
+                
             </div>
+
+            <button onclick="prevCreativeCard()" class="absolute left-[-50px] text-4xl p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg hover:scale-110 transition z-50">
+                &lt;
+            </button>
+            <button onclick="nextCreativeCard()" class="absolute right-[-50px] text-4xl p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-lg hover:scale-110 transition z-50">
+                &gt;
+            </button>
         </div>
     </div>
 {% endblock %}

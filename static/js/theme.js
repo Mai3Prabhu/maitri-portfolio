@@ -32,45 +32,44 @@ themeToggle.addEventListener('click', () => {
 });
 
 
-// --- CREATIVE CORNER MODAL LOGIC (Poetry Zoom) ---
+// ... (Keep the Dark/Light Mode Logic and the Painting Modal Logic above this) ...
 
+// --- Poetry Dialogue Box Zoom (Modal) Logic ---
+// We declare the variables ONCE here.
 const poemModal = document.getElementById('poem-modal');
-const modalPoemTitle = document.getElementById('modal-poem-title');
 const modalPoemContent = document.getElementById('modal-poem-content');
+const modalPoemTitle = document.getElementById('modal-poem-title'); // Must exist in base.html modal
 
-window.openPoemModal = function(title, content) {
-    modalPoemTitle.textContent = title;
-    // content uses <br> tags added in Jinja to preserve line breaks
-    modalPoemContent.innerHTML = content;
-    poemModal.classList.remove('hidden');
-    poemModal.classList.add('flex');
+// The function accepts the title and the content (which contains <br> tags)
+window.openPoemModal = function(titleText, poemHtmlContent) {
+    
+    // 1. Set the Title
+    if (modalPoemTitle) {
+        modalPoemTitle.textContent = titleText;
+    }
+
+    // 2. Set the Content (HTML includes <br> tags from Jinja)
+    if (modalPoemContent) {
+        modalPoemContent.innerHTML = `
+            <div class="whitespace-pre-wrap font-mono text-lg leading-relaxed text-gray-900 dark:text-gray-200">${poemHtmlContent}</div>
+        `;
+    }
+
+    // 3. Show the Modal
+    if (poemModal) {
+        poemModal.classList.remove('hidden');
+        poemModal.classList.add('flex');
+    }
 }
 
 window.closePoemModal = function() {
-    poemModal.classList.remove('flex');
-    poemModal.classList.add('hidden');
+    if (poemModal) {
+        poemModal.classList.remove('flex');
+        poemModal.classList.add('hidden');
+    }
 }
+// ... (Keep the Creative Corner Carousel Logic after this) ...
 
-// --- PAINTING MODAL LOGIC (Zoomable Images) ---
-
-const paintingModal = document.getElementById('painting-modal');
-const modalPaintingImage = document.getElementById('modal-painting-image');
-const modalPaintingCaption = document.getElementById('modal-painting-caption');
-
-window.openPaintingModal = function(imageFileName, captionText) {
-    // Construct the full URL using Flask's static path convention
-    const imageUrl = `/static/img/${imageFileName}`; 
-    
-    modalPaintingImage.src = imageUrl;
-    modalPaintingCaption.textContent = captionText;
-    paintingModal.classList.remove('hidden');
-    paintingModal.classList.add('flex');
-}
-
-window.closePaintingModal = function() {
-    paintingModal.classList.remove('flex');
-    paintingModal.classList.add('hidden');
-}
 // --- Insightify Project Carousel Logic ---
 let currentSlide = 0;
 let totalSlides = 5; // Must match the number of images
@@ -92,5 +91,90 @@ function updateCarousel() {
         // Moves the carousel container by a multiple of 100% of its width
         const offset = -currentSlide * 100; 
         carousel.style.transform = `translateX(${offset}%)`;
+    }
+}
+
+// --- Creative Corner Carousel Logic ---
+let currentCreativeCard = 1;
+const totalCreativeCards = 3;
+// No need for carouselContainer directly here, we query cards within the function
+
+function updateCreativeCarousel() {
+    const cards = document.querySelectorAll('.carousel-card');
+    cards.forEach((card, index) => {
+        const cardIndex = index + 1; // Card number (1 to 4)
+        
+        // Calculate the difference from the current active card
+        let difference = cardIndex - currentCreativeCard;
+        
+        // Handle wrap-around logic for difference (e.g., card 4 is -1 from card 1)
+        if (difference > totalCreativeCards / 2) {
+            difference -= totalCreativeCards;
+        } else if (difference < -totalCreativeCards / 2) {
+            difference += totalCreativeCards;
+        }
+
+        // --- Core for the visible circular effect ---
+        const absDifference = Math.abs(difference);
+
+        // 1. Z-Index for Stacking: Active card highest, then decreasing for cards behind
+        card.style.zIndex = totalCreativeCards - absDifference;
+        
+        // 2. Position and Scaling: Creates the stacked, circular, and receding effect
+        // Adjust these values to control how much cards are offset and scaled
+        const translateXValue = difference * 15; // Smaller horizontal spread (e.g., 15% instead of 100%)
+        const translateYValue = absDifference * 20; // Slightly lower for cards further back
+        const scaleValue = 1 - absDifference * 0.1; // Scale down by 10% per step back
+        const opacityValue = 1 - absDifference * 0.2; // Opacity decrease by 20% per step back
+
+        if (difference === 0) {
+            // Active card: centered, full scale, full opacity
+            card.style.transform = `translateX(0) translateY(0) scale(1)`;
+            card.style.opacity = '1';
+            card.style.pointerEvents = 'auto'; // Make active card links clickable
+        } else {
+            // Inactive cards: offset, scaled down, reduced opacity, behind
+            card.style.transform = `translateX(${translateXValue}%) translateY(${translateYValue}px) scale(${scaleValue})`;
+            card.style.opacity = Math.max(0.4, opacityValue); // Ensure minimum opacity so they're always somewhat visible
+            card.style.pointerEvents = 'none'; // Prevent clicking cards in the background
+        }
+    });
+}
+
+// Navigation Functions (Called by buttons in creative.html)
+window.nextCreativeCard = function() {
+    currentCreativeCard = (currentCreativeCard % totalCreativeCards) + 1;
+    updateCreativeCarousel();
+}
+
+window.prevCreativeCard = function() {
+    currentCreativeCard = (currentCreativeCard - 2 + totalCreativeCards) % totalCreativeCards + 1;
+    updateCreativeCarousel();
+}
+
+// Initialize the carousel when the page loads
+window.addEventListener('load', updateCreativeCarousel);
+
+// --- Painting Grid Data Retrieval and Zoom ---
+// Retrieves the data from the hidden element attribute and calls openModal.
+window.showPaintingDetails = function(index) {
+    const dataElement = document.getElementById('painting-data');
+    if (dataElement) {
+        // READS FROM THE DATA ATTRIBUTE (The most reliable method)
+        const jsonString = dataElement.getAttribute('data-paintings');
+        
+        try {
+            const paintingData = JSON.parse(jsonString);
+            
+            const data = paintingData[index];
+            if (data) {
+                const filename = data[0];
+                const caption = data[1];
+                
+                openModal(filename, caption); 
+            }
+        } catch (e) {
+            console.error("Error parsing painting data:", e);
+        }
     }
 }
